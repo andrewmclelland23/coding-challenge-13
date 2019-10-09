@@ -1,6 +1,3 @@
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.TimeZone
 import kotlin.math.floor
 
 class Day(val count: Int, var timeRemaining: Int = 36000) {
@@ -12,7 +9,6 @@ class Day(val count: Int, var timeRemaining: Int = 36000) {
     fun dayToString() : String {
         val secondsElapsed = 36000 - timeRemaining
         val days = count - 1
-        println(timeRemaining)
         val hours = floor((secondsElapsed)/3600.0)
         val minutes = floor((secondsElapsed - (hours * 3600))/60)
 

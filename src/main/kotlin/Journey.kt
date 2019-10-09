@@ -4,7 +4,6 @@ class Journey {
     var currentDay : Day
     var remainingLocations : MutableList<Location> = mutableListOf()
     var visitedLocations : MutableList<Location> = mutableListOf()
-    var distanceCalculator = DistanceCalculator()
 
     constructor(startPointName: String, locationString: String) {
         parseLocationString(locationString)
@@ -35,10 +34,10 @@ class Journey {
         while(remainingLocations.size != 0) {
             val currentLocation = visitedLocations.last()
             val closestLocation = remainingLocations.minBy {
-                distanceCalculator.timeBetweenTwoLocations(currentLocation, it, milesPerHour)
+                DistanceCalculator.timeBetweenTwoLocations(currentLocation, it, milesPerHour)
             }
             if(closestLocation == null) { error("Closest Location could not be determined") }
-            val travelTime = distanceCalculator.timeBetweenTwoLocations(currentLocation, closestLocation, milesPerHour)
+            val travelTime = DistanceCalculator.timeBetweenTwoLocations(currentLocation, closestLocation, milesPerHour)
             if(travelTime >= 36000) {
                 println("Journey ended Early: Next leg of journey will take more than the maximum possible journey time")
                 break
@@ -51,12 +50,5 @@ class Journey {
             }
         }
         return currentDay.dayToString()
-    }
-
-    fun formatResultString() : String {
-        var elapsedTodaySeconds = 36000 - currentDay.timeRemaining
-        println(currentDay.timeRemaining)
-        val elapsedTodayHours = elapsedTodaySeconds/1200
-        return "Trip Time: ${currentDay.count - 1} days, $elapsedTodayHours hours"
     }
 }

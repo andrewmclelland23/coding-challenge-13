@@ -86,10 +86,12 @@ internal class JourneyTest {
 
     @Test
     fun `calculateTrip starts new day when next leg exceeds travel time remaining + 20 mins`() {
-        //location 1 and 2 are exactly 9 hours 40 mins apart, so travel time is exactly 10 hours, so the journey to location 3 will be undertaken on day 2
-        val inputString = "test1,test1,53.007643, -0.598912,test2,test2,56.668024,-4.167868,test3,test3,56.670539, -4.162491"
+        val inputString = "test1,test1,53.007643, -0.598912,test2,test2,56.668024,-4.167868,test3,test3,56.680611,-3.377833"
         val longJourney = Journey("test1", inputString)
         longJourney.calculateTrip(30)
+        // Location 1 and 2 are exactly 9 hours 40 mins apart, so travel time is exactly 10 hours, so the journey to location 3 will be undertaken on day 2
         assertEquals(2, longJourney.currentDay.count)
+        // Location 2 and 3 are exactly 30 miles apart, so at 30mph the remaining travel time available for day 2 should be 8 hours 40 minutes
+        assertEquals(31200, longJourney.currentDay.timeRemaining)
     }
 }

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LocationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-09T13:57:45" hostname="vi-laqxbjg5h" time="0.006">
-  <properties/>
-  <testcase name="constructorTakesExpectedArguments()" classname="LocationTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

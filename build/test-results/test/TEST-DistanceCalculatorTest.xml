@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DistanceCalculatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-10-09T13:57:45" hostname="vi-laqxbjg5h" time="0.027">
-  <properties/>
-  <testcase name="timeBetweenTwoLocations30MilesApartAt30Mph()" classname="DistanceCalculatorTest" time="0.022"/>
-  <testcase name="timeBetweenTwoLocations30MilesApartAt60Mph()" classname="DistanceCalculatorTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

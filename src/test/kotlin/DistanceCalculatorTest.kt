@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions.*
 
 internal class DistanceCalculatorTest {
 
-    val distanceCalculator = DistanceCalculator()
+    val distanceCalculator = DistanceCalculator
 
     val loc1 = mockk<Location>() {
         every { longitude } returns 51.449075

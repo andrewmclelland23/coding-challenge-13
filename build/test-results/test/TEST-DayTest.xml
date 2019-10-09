@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DayTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-10-09T13:57:45" hostname="vi-laqxbjg5h" time="0.003">
-  <properties/>
-  <testcase name="dayInitialisedWith10Hours()" classname="DayTest" time="0.001"/>
-  <testcase name="deductTimeReducesTimeRemaining()" classname="DayTest" time="0.0"/>
-  <testcase name="dayInitialisedWithCountValue()" classname="DayTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
