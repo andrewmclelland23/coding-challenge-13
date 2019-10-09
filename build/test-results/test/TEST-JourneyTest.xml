@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JourneyTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-10-09T13:57:45" hostname="vi-laqxbjg5h" time="0.018">
+  <properties/>
+  <testcase name="travelToLocationUpdatesRemainingLocations()" classname="JourneyTest" time="0.001"/>
+  <testcase name="calculateTripChoosesNextClosestLocation()" classname="JourneyTest" time="0.005"/>
+  <testcase name="parseLocationString()" classname="JourneyTest" time="0.001"/>
+  <testcase name="journeyConstructorFailIfStartNotFound()" classname="JourneyTest" time="0.001"/>
+  <testcase name="calculateTripStopsIfTooFarToTravelInADay()" classname="JourneyTest" time="0.001"/>
+  <testcase name="travelToLocationUpdatesVisitedLocations()" classname="JourneyTest" time="0.001"/>
+  <testcase name="journeyConstructor()" classname="JourneyTest" time="0.001"/>
+  <testcase name="calculateTrip starts new day when next leg exceeds travel time remaining + 20 mins()" classname="JourneyTest" time="0.001"/>
+  <testcase name="travelToLocationDeductsJourneyTime()" classname="JourneyTest" time="0.001"/>
+  <system-out><![CDATA[16790
+Journey ended Early: Next leg of journey will take more than the maximum possible journey time
+16790
+34768
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

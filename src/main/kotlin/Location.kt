@@ -1,0 +1,1 @@
+data class Location(val name: String, val postcode: String, val longitude: Double, val latitude: Double) {}
