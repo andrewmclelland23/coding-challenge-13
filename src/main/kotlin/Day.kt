@@ -1,4 +1,5 @@
 import kotlin.math.floor
+import kotlin.math.round
 
 class Day(val count: Int, var timeRemaining: Int = 36000) {
 
@@ -9,9 +10,9 @@ class Day(val count: Int, var timeRemaining: Int = 36000) {
     fun dayToString() : String {
         val secondsElapsed = 36000 - timeRemaining
         val days = count - 1
-        val hours = floor((secondsElapsed)/3600.0)
-        val minutes = floor((secondsElapsed - (hours * 3600))/60)
+        val hours = floor((secondsElapsed)/3600.0).toInt()
+        val minutes = round((secondsElapsed - (hours * 3600.0))/60).toInt()
 
-        return "Journey Time: $days days, $hours hours and $minutes minutes"
+        return "$days days, $hours hours and $minutes minutes"
     }
 }

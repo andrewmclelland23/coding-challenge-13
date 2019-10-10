@@ -16,6 +16,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
     testImplementation("com.github.sfeatherstone:geodesy_jvm:v0.2.0")
     testImplementation("io.mockk:mockk:1.9.3")
+    compile(kotlin("script-runtime"))
 }
 
 tasks.test {

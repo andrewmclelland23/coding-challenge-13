@@ -1,6 +1,4 @@
-import io.mockk.mockkClass
 import org.junit.jupiter.api.Test
-
 import org.junit.jupiter.api.Assertions.*
 
 internal class JourneyTest {
@@ -49,8 +47,15 @@ internal class JourneyTest {
     }
 
     @Test
-    fun travelToLocationDeductsJourneyTime() {
-        journey.travelToLocation(Location("test name", "test pc", -1.279705,51.672083),3600)
+    fun `travelToLocation throws error when destination can't be found in remaining locations list`() {
+        assertThrows(Error::class.java) {
+            journey.travelToLocation(Location("test name", "test pc", -1.279705,51.672083),3600)
+        }
+    }
+
+    @Test
+    fun `travelToLocation correctly deducts travel time + 20 mins from remaining time`() {
+        journey.travelToLocation(journey.remainingLocations[1], 3600)
         assertEquals(31200, journey.currentDay.timeRemaining)
     }
 
@@ -93,5 +98,11 @@ internal class JourneyTest {
         assertEquals(2, longJourney.currentDay.count)
         // Location 2 and 3 are exactly 30 miles apart, so at 30mph the remaining travel time available for day 2 should be 8 hours 40 minutes
         assertEquals(31200, longJourney.currentDay.timeRemaining)
+    }
+
+    @Test
+    fun fullJourney() {
+        val fullJourney = Journey("John Lewis.com", inputStringFull)
+        println(fullJourney.calculateTrip(30))
     }
 }

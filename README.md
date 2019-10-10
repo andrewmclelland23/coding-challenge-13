@@ -2,18 +2,15 @@
 
 ## Problem
 
-I like the John Lewis Partnership so much I have decided to try and visit every Waitrose and John Lewis shop. So this challenge is to create a function that takes a string containing the name and geo-location of every shop and calculate the route.
+*I like the John Lewis Partnership so much I have decided to try and visit every Waitrose and John Lewis shop. So this challenge is to create a function that takes a string containing the name and geo-location of every shop and calculate the route.*
    
-To calculate the route use the following rules:
+*To calculate the route use the following rules:*
    
-Start at John Lewis Head Office (longitude:-0.141499, latitude:51.496466).
+*Start at John Lewis Head Office (longitude:-0.141499, latitude:51.496466).  
+Go to the nearest shop that you have not visited (as the crow flies).  
+Repeat until you have visited every shop.*
    
-Go to the nearest shop that you have not visited (as the crow flies).
-   
-Repeat until you have visited every shop.
-   
-I can only travel between 8am and 6pm and will spend at least 20 minutes at each place I visit. I estimate I will travel on average 30 miles per hour. I will not leave a shop unless I can reach the next shop before 6pm on the same day. Using these rules how long will it take me to reach the final shop?
-
+*I can only travel between 8am and 6pm and will spend at least 20 minutes at each place I visit. I estimate I will travel on average 30 miles per hour. I will not leave a shop unless I can reach the next shop before 6pm on the same day. Using these rules how long will it take me to reach the final shop?*
 <details><summary>Click here for sample input data</summary>
 <p>
 
@@ -29,9 +26,483 @@ Abergavenny,NP7 9LL,-3.028245,51.818294,Abergavenny Petrol Station,NP7 9LL,-3.02
 **Language:** Kotlin  
 **Build Tool:** Gradle  
 **Test Framework:** Junit 5  
-**Mock Library**: Mockk
+**Mock Library**: Mockk  
+**Geolocation Library**: Geodesy
 
 ## Testing
 
 To run the tests you can clone the repo and move to the base directory, then run the following command:  
+
 `./gradlew clean test`
+
+## Program Output
+
+You can generate the output for a run using the full list of branches by running the following command:  
+
+`gradle test --tests JourneyTest.fullJourney --info`
+
+<details><summary>Click here to see a copy of the output</summary>
+<p>
+
+```
+Journey ended early: Next leg of journey, St Saviour (Jersey) to John Lewis Aberdeen, will take more than a full travel day
+
+Total journey time: 32 days, 2 hours and 17 minutes
+
+Final Destination: St Saviour (Jersey)
+
+Skipped Shops:
+John Lewis Aberdeen
+
+Shops Visited:
+John Lewis.com
+Victoria Bressenden Place
+Victoria Street
+Pimlico
+BATTERSEA NINE ELMS
+Vauxhall
+Battersea
+Clapham Common
+Balham
+Clapham Junction
+Kings Road
+Peter Jones
+Belgravia
+Knightsbridge
+Old Brompton Road
+Gloucester Road
+Kensington
+Notting Hill Gate
+Bayswater
+Kensington Gardens
+Edgware Road
+Marylebone
+JL Foodhall Oxford Street
+Bloomsbury
+John Lewis St Pancras
+Kings Cross Station
+Cookery School (Kings Cross)
+Kings Cross
+John Lewis Oxford Street
+Clerkenwell
+Islington
+Highbury Corner
+Holloway Road
+Crouch End
+Muswell Hill
+Finchley
+Finchley Central
+Mill Hill
+Temple Fortune
+Brent Cross
+John Lewis Brent Cross
+West Hampstead
+Cookery School (Finchley Road)
+John Barnes
+John Lewis White City Westfield
+Westfield London
+Fulham Palace Road
+West Kensington
+Fulham
+Parsons Green
+East Putney
+Putney
+Wandsworth
+Wimbledon
+Wimbledon Hill
+Raynes Park
+New Malden
+Worcester Park
+Cheam
+Banstead
+Burgh Heath
+Epsom
+Surbiton
+John Lewis Kingston
+Kingston
+Twickenham
+Richmond
+East Sheen
+Chiswick
+Ealing
+West Ealing
+SKY (OSTERLEY)
+South Harrow
+South Harrow Petrol Station
+Harrow Weald
+John Lewis Watford
+Little Waitrose at John Lewis Watford
+Sceptre (Watford)
+St Albans
+Harpenden
+John Lewis Welwyn
+Welwyn Garden City
+Stevenage
+Hitchin
+Ampthill
+Bedford
+St Neots
+St Ives
+John Lewis Cambridge
+Fitzroy Street
+Cambridge
+Saffron Walden
+Birchanger Services
+Bishops Stortford
+Broxbourne
+Enfield
+Enfield Chase
+Winchmore Hill
+Whetstone
+Barnet
+Mimms Services
+London Gateway
+Northwood
+Ruislip
+Waterside
+John Lewis Heathrow Terminal 2
+Hampton
+Esher
+Hersham
+Cobham
+Weybridge
+Addlestone
+West Byfleet
+Burnt Common
+Guildford
+Guildford Worplesdon Road
+Goldsworth Park
+Sunningdale
+Bagshot
+Frimley
+Sandhurst
+Yateley
+Fleet South Services
+Fleet
+Farnham
+Haslemere
+Godalming
+Egham
+Windsor New
+Maidenhead
+Marlow
+John Lewis High Wycombe
+High Wycombe
+Hazlemere
+Beaconsfield
+Amersham
+Chesham
+Berkhamsted
+Rickmansworth
+Gerrards Cross
+Bracknell
+Bagshot Road
+Horticulture Direct Services
+Waitrose Online Direct
+Wokingham
+Twyford
+Woodley
+John Lewis Reading
+Caversham
+Reading
+Henley
+Thame
+Oxford Services
+Headington
+Headington - London Road
+John Lewis Oxford
+Oxford Botley Road
+Peartree
+Abingdon
+Wantage
+Faringdon
+Witney
+Membury Services
+Marlborough
+Swindon
+John Lewis at home Swindon
+John Lewis Outlet Swindon
+Cirencester
+Malmesbury
+Chippenham
+Melksham
+Warminster
+Gillingham
+Sherborne
+Poundbury
+Dorchester
+Bridport
+Crewkerne
+Wells
+Nailsea
+Portishead
+Portishead Petrol Station
+Gordano Services
+Westbury Park
+Clifton
+John Lewis Cribbs Causeway
+Keynsham
+Bath
+Chipping Sodbury
+Michaelwood Services
+Stroud
+Cheltenham
+Cheltenham Petrol Station
+John Lewis Cheltenham
+Evesham
+Alcester
+Hopwood Park Petrol Filling Station (ser
+Hopwood Services
+Harborne
+John Lewis Birmingham
+Hall Green
+Solihull
+John Lewis Solihull
+Four Oaks
+Lichfield
+John Lewis at home Tamworth
+Corley Services
+Kenilworth
+Warwick Services
+Stratford Upon Avon
+Banbury
+Brackley
+Buckingham
+Towcester
+Wootton
+Kingsthorpe
+Market Harborough
+Oadby
+John Lewis Leicester
+Blaby
+Leicester Forest East Services
+MOUNTSORREL
+John Lewis Nottingham
+Trinity Square
+Wollaton
+Woodhall South
+John Lewis Sheffield
+Sheffield
+Sheffield Petrol Station
+John Lewis Leeds
+Meanwood
+Otley
+Harrogate
+Hartshead Moor (Services)
+Buxton
+Poynton
+Cheadle Hulme
+John Lewis Cheadle
+Wilmslow
+Alderley Edge
+Knutsford
+Altrincham
+John Lewis Trafford
+Northwich
+Sandbach
+Keele Services
+Newport
+Wolverhampton
+Wolverhampton Petrol Station
+Stourbridge
+Bromsgrove
+Droitwich
+Worcester
+Great Malvern
+Hereford
+Monmouth
+Caldicot
+Weston Super Mare
+John Lewis Cardiff
+Pontprennau
+Cardiff Gate Services
+Barry
+Cowbridge
+Wellington
+Sidmouth
+Exeter
+John Lewis Exeter
+Teignmouth
+Torquay
+Okehampton
+Holsworthy
+Saltash
+Truro
+Abergavenny
+Abergavenny Petrol Station
+Shrewsbury
+Chester
+John Lewis at home Chester
+John Lewis Liverpool
+Formby
+Charnock Richard (Services)
+Walton-le-Dale
+UTTOXETER
+Ashbourne
+Lutterworth
+Daventry
+John Lewis Milton Keynes
+Oakgrove
+Newport Pagnell
+Leighton Buzzard
+Aylesbury
+Wallingford
+Thatcham
+John Lewis at home Newbury
+Newbury
+Andover
+Winchester
+Chandlers Ford
+Southampton New
+John Lewis Southampton
+Little Waitrose John Lewis Southampton
+Dibden
+Locks Heath
+East Cowes
+Gosport
+Knight and Lee
+Southsea
+Waterlooville
+Havant
+Petersfield
+Alton
+BASINGSTOKE
+John Lewis at home Basingstoke
+Romsey
+Lymington New
+Christchurch
+Winton
+John Lewis at home Poole
+Parkstone
+Wimborne
+Ringwood
+Cookery School (Salisbury)
+Salisbury
+Salisbury Petrol Station
+Chichester
+John Lewis at home Chichester
+Rustington
+Storrington
+Worthing
+Hove
+Brighton
+Burgess Hill
+Haywards Heath
+East Grinstead
+Edenbridge
+Oxted
+Biggin Hill
+Green Street Green
+Petts Wood
+Sidcup
+Bromley
+Bromley South
+Beckenham
+Greenwich
+Canary Wharf
+Canary Wharf
+Stratford City
+John Lewis Stratford
+South Woodford
+Buckhurst Hill
+St Katharine Docks
+Monument
+Walbrook
+Barbican
+South Bank Tower
+High Holborn
+ROEHAMPTON
+John Lewis at home Croydon
+Croydon
+Sanderstead
+Caterham
+Coulsdon DFC
+Coulsdon
+Horley - Brighton Road
+Horley
+Dorking
+Leatherhead
+Horsham New
+John Lewis at home Horsham
+Lewes
+Uckfield
+Crowborough
+Heathfield
+Hailsham
+Eastbourne
+Hawkhurst
+Paddock Wood
+Kingshill
+Allington Park
+Longfield
+JL Foodhall Bluewater
+John Lewis Bluewater
+Upminster
+Billericay
+John Lewis Chelmsford
+Leigh On Sea
+Southend
+Southend Petrol Station
+Colchester
+Sudbury
+Bury St Edmunds
+Newmarket
+Ely
+Swaffham
+Swaffham Petrol Station
+Wymondham
+Wymondham Petrol Station
+Norwich
+John Lewis Norwich
+North Walsham
+Saxmundham
+Ipswich
+John Lewis at home Ipswich
+Ipswich (Corn Exchange)
+Ramsgate
+Canterbury
+Hythe
+John Lewis at home Ashford
+Ashford
+Tenterden
+John Lewis at home Tunbridge Wells
+Tonbridge
+Sevenoaks
+Tubs Hill
+Rushden
+Rushden Petrol Station
+Oundle
+Stamford
+Peterborough
+John Lewis Peterborough
+Lincoln
+Lincoln Petrol Station
+Newark
+Willerby
+John Lewis York
+York
+John Lewis Newcastle
+Eldon Square
+Jesmond
+Ponteland
+Hexham
+Gretna Green (Services)
+Morningside
+Comely Bank
+Stirling
+John Lewis Glasgow
+Byres Road
+Milngavie
+Newton Mearns
+Helensburgh
+Helensburgh Petrol Station
+Menai Bridge
+Rohais (Guernsey)
+Admiral Park (Guernsey)
+Red Houses (Jersey)
+St Helier (Jersey)
+St Saviour (Jersey)
+```
+
+</p>
+</details>

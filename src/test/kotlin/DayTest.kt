@@ -20,5 +20,12 @@ internal class DayTest {
         day.deductTime(60)
         assertEquals(35940, day.timeRemaining)
     }
+
+    @Test
+    fun `dayToString correctly formats seconds into a string of day, hours and minutes`() {
+        val day = Day(1)
+        day.deductTime(3932)
+        assertEquals("0 days, 1 hours and 6 minutes", day.dayToString())
+    }
 }
 
